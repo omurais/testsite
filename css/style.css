@@ -39,6 +39,18 @@ footer{
   padding: 20px;
   text-align: right;
 }
+
+/* kv */
+.kv{
+  margin: 0 auto;
+}
+
+.kv img{
+  text-align: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
 /* スライドショー */
 article{
   width: 256px;
