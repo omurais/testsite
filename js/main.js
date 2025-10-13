@@ -139,3 +139,32 @@ window.addEventListener('load', () => {
     pElm.textContent = inputElm.value.length;
    });
 }
+
+{
+ const modal = $("#js-modal");
+const overlay = $("#js-overlay");
+const close = $("#js-close");
+const open = $("#js-open");
+
+open.on('click', function () { //ボタンをクリックしたら
+  modal.addClass("open"); // modalクラスにopenクラス付与
+  overlay.addClass("open"); // overlayクラスにopenクラス付与
+});
+close.on('click', function () { //×ボタンをクリックしたら
+  modal.removeClass("open"); // overlayクラスからopenクラスを外す
+  overlay.removeClass("open"); // overlayクラスからopenクラスを外す
+});
+overlay.on('click', function () { //背景をクリックしたら
+  modal.removeClass("open"); // overlayクラスからopenクラスを外す
+  overlay.removeClass("open"); // overlayクラスからopenクラスを外す
+});
+}
+
+{
+  // jQuery carousel
+  $(".slide-items").slick({
+    centerMode: true,// 前後スライドを部分表示
+  centerPadding: '10%',// 両端の見切れるスライド幅
+  dots: true,
+  });
+}

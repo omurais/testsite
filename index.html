@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>オリジナルサイト</title>
+    <!-- slick -->
+   <link rel="stylesheet" href="../jquery/slick-1.8.1/slick/slick.css">
+   <link rel="stylesheet" href="../jquery/slick-1.8.1/slick/slick-theme.css">
+
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="../jquery/jquery/jquery.min.js"></script>
+  <script src="../jquery/slick-1.8.1/slick/slick.min.js"></script>
 </head>
 <body>
   <header>
@@ -18,8 +25,37 @@
   <main>
     <!-- kv -->
      <div class="kv">
-      <img src="img/kv.png" alt="">
+      <img src="img/kv.png" alt="" class="kv-img">
      </div>
+
+     <!-- jquery modal -->
+      <article>
+        <div class="overlay" id="js-overlay"></div>
+  <div class="modal" id="js-modal">
+
+    <div class="modal-close__wrap">
+      <button class="modal-close" id="js-close">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <p><img src="img/sekkisei_hanyu1.jpg" alt="">
+    テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+  </div>
+
+  <button class="modal-open" id="js-open">モーダルウィンドウオープン</button>
+      </article>
+
+      <!-- jQuery carousel -->
+       <article>
+        <ul class="slide-items">
+          <ul><img src="img/carousel/pic1.png" alt=""></ul>
+          <ul><img src="img/carousel/pic2.png" alt=""></ul>
+          <ul><img src="img/carousel/pic3.png" alt=""></ul>
+        </ul>
+       </article>
+
       <!-- スライドショー start-->
        <article>
         <img src="img/pic0.png" alt="" width="256" height="192" id="main-image">
@@ -63,15 +99,17 @@
          </div>
       
           <div id="mask" class="hidden"></div>
-          
+
+          <!-- jquery modal -->
+         
        </article>
   </main>
   <footer>
-    <div class="copyright">(C) 2025 om3design.ltd. All Rights Reserved.</div
+    <div class="copyright">(C) 2025 om3design.ltd. All Rights Reserved.</div>
   </footer>
     <!-- モーダルウィンドウ end-->
-   <script src="js/main.js"></script>
-   <script src="js/jquery/jquery.min.js"></script>
-   <!-- <script src="js/jquery/jquery.js"></script> -->
+
+    <!-- js jquery -->
+     <script src="js/main.js"></script>
 </body>
 </html>
