@@ -1,0 +1,60 @@
+@charset "utf-8";
+body{
+  margin: 0;
+  padding: 0;
+}
+
+main{
+  width: 300px;
+  margin: 0 auto;
+}
+
+#kv{
+  position: relative;
+}
+
+#kv img{
+  width: 300px;
+}
+
+.arrow-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.next{
+  right: 0;
+}
+
+.prev{
+  left: 0;
+}
+
+#container{
+  width: 300px;
+  display: flex;
+  justify-content:space-between;
+  margin-top: 8px;
+}
+
+#prev, #next{
+  all: unset;
+  background: lightgray;
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+#container img{
+  width: 33.33%;
+  flex: 1;
+  cursor: pointer;
+  opacity: .4;
+}
+
+#container img.active{
+  opacity: 1;
+}
