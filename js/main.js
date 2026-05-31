@@ -51,6 +51,7 @@ window.addEventListener('load', () => {
   // スライドショー
   const thumbnails = document.querySelectorAll('.thumbnail');
   const mainImage = document.getElementById('main-image');
+  if (!thumbnails.length || !mainImage) return;
   const next = document.getElementById('next');
   const prev = document.getElementById('prev');
   let activeIndex = 0;
@@ -112,6 +113,7 @@ window.addEventListener('load', () => {
   const close = document.getElementById('close');
   const mask = document.getElementById('mask');
   const modal = document.getElementById('modal');
+  if (!open || !close || !mask || !modal) return;
 
   open.addEventListener('click', () => {
     modal.classList.remove('hidden');
@@ -132,6 +134,7 @@ window.addEventListener('load', () => {
 
 {
   // DOM
+  if (!document.querySelector('input')) return;
   document.querySelector('input').addEventListener('input', () => {
     const pElm = document.querySelector('p');
     const inputElm = document.querySelector('input');
@@ -141,6 +144,7 @@ window.addEventListener('load', () => {
 }
 
 {
+  if (typeof $ === 'undefined') return;
  const modal = $("#js-modal");
 const overlay = $("#js-overlay");
 const close = $("#js-close");
@@ -161,6 +165,7 @@ overlay.on('click', function () { //背景をクリックしたら
 }
 
 {
+  if (typeof $ === 'undefined') return;
   // jQuery carousel
   $(".slide-items").slick({
     centerMode: true,// 前後スライドを部分表示
@@ -170,6 +175,7 @@ overlay.on('click', function () { //背景をクリックしたら
 }
 
 {
+  if (typeof $ === 'undefined') return;
   $(function(){
 	// 変数に要素を入れる
 	var open = $('.modal-open'),
@@ -177,13 +183,13 @@ overlay.on('click', function () { //背景をクリックしたら
 		container = $('.modal-container');
 
 	//開くボタンをクリックしたらモーダルを表示する
-	open.on('click',function(){	
+	open.on('click',function(){
 		container.addClass('active');
 		return false;
 	});
 
 	//閉じるボタンをクリックしたらモーダルを閉じる
-	close.on('click',function(){	
+	close.on('click',function(){
 		container.removeClass('active');
 	});
 
