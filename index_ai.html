@@ -11,6 +11,7 @@
   <nav class="nav">
     <div class="burger">■</div>
     <ul class="nav-menu">
+      <li class="nav-close">×</li>
       <li>dddd</li>
       <li>eeee</li>
       <li>ffff</li>
@@ -20,8 +21,29 @@
     <div class="title">
       AI練習用
     </div>
+    <nav class="nav_pc">
+      <ul class="nav-menu_pc">
+        <li>dddd</li>
+        <li>eeee</li>
+        <li>ffff</li>
+      </ul>
+    </nav>
   </header>
   <main>
+    <div id="kv">
+      <div class="kv-slider">
+        <div class="kv-track">
+          <div class="kv-slide" style="background:#c0392b;">Image 1</div>
+          <div class="kv-slide" style="background:#2980b9;">Image 2</div>
+          <div class="kv-slide" style="background:#27ae60;">Image 3</div>
+          <div class="kv-slide" style="background:lightgray;">Image 4</div>
+          <div class="kv-slide" style="background:lightpink">Image 5</div>
+        </div>
+        <button class="kv-prev">&#10094;</button>
+        <button class="kv-next">&#10095;</button>
+        <div class="kv-dots"></div>
+      </div>
+    </div>
     <ul>
       <li><a href="#aaa">aaa</a></li>
       <li><a href="#bbb">bbb</a></li>
@@ -46,21 +68,20 @@
 
     <article class="fade-in">
       <a id="bbb"></a><h2>bbb</h2>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb <br>
-      bbb
+     <div class="tab">
+       <ul class="tab-menu">
+         <li class="tab-item active" data-tab="tab1">初級</li>
+         <li class="tab-item" data-tab="tab2">中級</li>
+         <li class="tab-item" data-tab="tab3">上級</li>
+       </ul>
+       <div class="tab-content active" id="tab1">初級のコンテンツ</div>
+       <div class="tab-content" id="tab2">中級のコンテンツ</div>
+       <div class="tab-content" id="tab3">上級のコンテンツ</div>
+     </div>
+    </article>
+
+    <article>
+    <div class="open-btn">モーダルを開く</div>
     </article>
 
     <article>
@@ -91,6 +112,9 @@
   <footer>
     <div class="copyright">(C) 2026 om3design.ltd. All Rights Reserved.</div>
   </footer>
+  <div class="modal"><p>モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / モーダル / </p>
+    <div class="close-btn">モーダルを閉じる</div>
+  </div>
   <script src="js/main_ai.js"></script>
 </body>
 </html>
