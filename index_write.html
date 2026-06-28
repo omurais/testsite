@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手書きJS</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    main{
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    article{
+      margin-bottom: 24px;
+    }
+
+    /* 開閉 */
+    .appear{
+      display: none;
+    }
+
+    /* タブメニュー */
+    .tab-container{
+      width: 100%;
+      max-width: 600px;
+    }
+    .tab-menu{
+       display: flex;
+    }
+    .tab-menu li{
+      list-style-type: none;
+      width: 33.3%;
+      border: 1px solid #333;
+      text-align: center;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .tab-menu li.select{
+      border-bottom: 0px;
+      background: #ccc;
+    }
+    .tab-content{
+      border: 1px solid #333;
+      border-top: 0px;
+      padding: 16px;
+      display: none;
+    }
+    .is-show{
+      display: block;
+      background: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- 開閉 -->
+    <article>
+      <div class="open-close">
+        <button>クリックで表示</button>
+        <div class="appear">表示しました</div>
+      </div>
+    </article>
+     <!-- ハンバーガーメニュー -->
+    <article>
+    </article>
+    <!-- モーダル -->
+    <article>
+    </article>
+    <!-- タブメニュー -->
+    <article>
+      <div class="tab-container">
+        <ul class="tab-menu">
+          <li class="tab-item select" data-tab="tab-a">a</li>
+          <li class="tab-item" data-tab="tab-b">b</li>
+          <li class="tab-item" data-tab="tab-c">c</li>
+        </ul>
+        <div class="tab-content is-show" id="tab-a">aaaaaaaaaaaaaaaaaaaaaaaaa</div>
+        <div class="tab-content" id="tab-b">bbbbbbbbbbbbbbbbbbbbbbbbb</div>
+        <div class="tab-content" id="tab-c">ccccccccccccccccccccccccc</div>
+      </div>
+    </article>
+  </main>
+  <script>
+    "use strict";
+    {
+      // 開閉
+      const btn = document.querySelector('button');
+      const appear = document.querySelector('.appear');
+      
+      btn.addEventListener('click', () => {
+        appear.classList.toggle('appear');
+      });
+
+      // タブメニュー
+      const tabMenu = document.querySelectorAll('.tab-item');
+      const tabContent = document.querySelector('.tab-content');
+
+      tabMenu.forEach(item => {
+        item.addEventListener('click', () => {
+          const target = item.dataset.tab;
+          document.querySelectorAll('.tab-item').forEach(i => i.classList.remove('select'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('is-show'));
+          item.classList.add('select');
+          document.getElementById(target).classList.add('is-show');
+        });
+      });
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — 山田 太郎</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #444;
+    --ink-muted: #888;
+    --paper: #faf8f4;
+    --paper-off: #f0ede6;
+    --accent: #2a4d3e;
+    --accent-light: #e8f0ec;
+    --accent-mid: #4a7c63;
+    --rule: #d4cfc6;
+    --gold: #b8973a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(250, 248, 244, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 7rem 4rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    margin-bottom: 0.6rem;
+  }
+
+  h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-text {}
+
+  .hero-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-name span {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: var(--ink-muted);
+    margin-top: 0.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    margin: 2rem 0;
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .tag {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 14px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    transition: background 0.2s;
+    border-radius: 2px;
+  }
+  .btn-primary:hover { background: var(--accent-mid); }
+
+  .btn-ghost {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+  .btn-ghost:hover { background: var(--accent); color: #fff; }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .avatar-frame {
+    width: 320px;
+    height: 380px;
+    background: var(--accent-light);
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .avatar-frame::before {
+    content: '';
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 140px; height: 140px;
+    border: 2px solid var(--rule);
+    border-radius: 4px;
+  }
+
+  .avatar-placeholder {
+    font-size: 5rem;
+    opacity: 0.35;
+  }
+
+  .avatar-caption {
+    position: absolute;
+    bottom: 1.2rem; left: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent-mid);
+    text-transform: uppercase;
+    background: var(--paper);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* ── PROFILE ── */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .profile-bio {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .profile-bio p { margin-bottom: 1.2rem; }
+
+  .info-list {
+    background: var(--paper-off);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .info-item:last-child { border-bottom: none; }
+
+  .info-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 2px;
+  }
+
+  .info-value {
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  /* ── CAREER ── */
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    bottom: 0;
+    width: 1px;
+    background: var(--rule);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3.5rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.6rem;
+    top: 0.55rem;
+    width: 10px;
+    height: 10px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    background: var(--paper);
+  }
+
+  .timeline-period {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--accent-mid);
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-company {
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-role {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.03em;
+  }
+
+  .timeline-body {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .timeline-body ul { list-style: none; }
+  .timeline-body li {
+    padding-left: 1.2rem;
+    position: relative;
+    margin-bottom: 0.4rem;
+  }
+  .timeline-body li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-mid);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+  }
+
+  .skill-tag {
+    font-size: 11px;
+    color: var(--ink-muted);
+    border: 1px solid var(--rule);
+    padding: 2px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SKILLS BAR ── */
+  .skills-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .skills-section h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+
+  .skill-bar-item {
+    display: grid;
+    grid-template-columns: 160px 1fr 40px;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .skill-bar-label {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .skill-bar-track {
+    height: 4px;
+    background: var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transform-origin: left;
+    animation: growBar 1s ease forwards;
+  }
+
+  @keyframes growBar {
+    from { width: 0; }
+  }
+
+  .skill-bar-pct {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: var(--ink-muted);
+    text-align: right;
+  }
+
+  /* ── HOBBIES ── */
+  .hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .hobby-card {
+    background: var(--paper-off);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 2rem 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .hobby-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .hobby-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hobby-title {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .hobby-desc {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ── */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-text {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .contact-text p { margin-bottom: 1.2rem; }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--paper-off);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--ink-soft);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .contact-item:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .contact-item-icon {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .contact-item-info {}
+
+  .contact-item-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .contact-item-value {
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 1px;
+  }
+
+  /* ── SEEKING BADGE ── */
+  .seeking-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #e8f4e8;
+    border: 1px solid #b0d4b0;
+    color: #2a5a2a;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+
+  .seeking-dot {
+    width: 7px; height: 7px;
+    background: #3a8a3a;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2rem 4rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+  }
+
+  /* ── DIVIDER ── */
+  .full-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── ENTRANCE ANIMATION ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#profile">プロフィール</a></li>
+    <li><a href="#career">職務経歴</a></li>
+    <li><a href="#hobbies">趣味</a></li>
+    <li><a href="#contact">連絡先</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="seeking-badge">
+        <div class="seeking-dot"></div>
+        転職活動中
+      </div>
+      <div class="hero-eyebrow">Career Portfolio</div>
+      <div class="hero-name">
+        山田　太郎
+        <span>YAMADA TARO</span>
+      </div>
+      <p class="hero-tagline">
+        デジタルマーケティングとデータ分析を軸に、<br>
+        10年以上の実務経験を持つマーケター。<br>
+        次のステージで新たな価値を生み出したい。
+      </p>
+      <div class="hero-tags">
+        <span class="tag">デジタルマーケティング</span>
+        <span class="tag">データ分析</span>
+        <span class="tag">リーダーシップ</span>
+        <span class="tag">BtoB / BtoC</span>
+      </div>
+      <div class="cta-row">
+        <a href="#career" class="btn-primary">職務経歴を見る</a>
+        <a href="#contact" class="btn-ghost">連絡する</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-frame">
+        <div class="avatar-placeholder">👤</div>
+        <div class="avatar-caption">Photo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- PROFILE -->
+<section id="profile">
+  <div class="fade-in">
+    <div class="section-label">About Me</div>
+    <h2>プロフィール</h2>
+    <div class="profile-grid">
+      <div class="profile-bio">
+        <p>
+          東京都在住。2014年に大手広告代理店に入社後、デジタルマーケティング部門に配属。
+          SEO・SNS広告・メールマーケティングなどの施策立案から実行まで一貫して担当。
+        </p>
+        <p>
+          2019年よりスタートアップ企業のマーケティングマネージャーとして、チームの立ち上げと
+          グロース施策を牽引。Google Analytics・Tableau を活用した数値ドリブンなアプローチを得意とし、
+          MAU 前年比 180% を達成。
+        </p>
+        <p>
+          現在は、より裁量を持って事業成長に関われるポジションを求め、転職活動中。
+          特にSaaS・フィンテック・ヘルスケック領域に興味があります。
+        </p>
+      </div>
+      <div class="info-list">
+        <div class="info-item">
+          <div class="info-label">現住所</div>
+          <div class="info-value">東京都渋谷区</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">年齢</div>
+          <div class="info-value">34歳</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">最終学歴</div>
+          <div class="info-value">◯◯大学 経営学部 卒業</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">英語力</div>
+          <div class="info-value">TOEIC 820 / ビジネス読み書き可</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">希望勤務地</div>
+          <div class="info-value">東京・神奈川 / フルリモート可</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">希望年収</div>
+          <div class="info-value">700万円〜</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career" style="background: var(--paper-off); max-width: 100%; padding-left: 0; padding-right: 0;">
+  <div style="max-width: 960px; margin: 0 auto; padding: 0 4rem;" class="fade-in">
+    <div class="section-label">Work History</div>
+    <h2>職務経歴</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-period">2019.04 — 現在</div>
+        <div class="timeline-company">◯◯株式会社（スタートアップ）</div>
+        <div class="timeline-role">マーケティングマネージャー</div>
+        <div class="timeline-body">
+          <ul>
+            <li>マーケティングチーム（5名）の立ち上げ・マネジメント</li>
+            <li>SEO・コンテンツ・SNS・メール施策の統括と KPI 管理</li>
+            <li>Google Analytics / Tableau を用いたダッシュボード構築と月次レポーティング</li>
+            <li>施策改善により MAU 前年比 180%・CAC 40% 削減を達成</li>
+          </ul>
+          <div class="skill-tags">
+            <span class="skill-tag">Google Analytics 4</span>
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">HubSpot</span>
+            <span class="skill-tag">SEO</span>
+            <span class="skill-tag">チームマネジメント</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">2014.04 — 2019.03</div>
+        <div class="timeline-company">◯◯広告株式会社</div>
+        <div class="timeline-role">デジタルマーケティング担当</div>
+        <div class="timeline-body">
+          <ul>
+            <li>BtoC クライアント向けリスティング・ディスプレイ広告の運用（月次予算 1,000万〜）</li>
+            <li>SNS 広告（Instagram / Facebook / Twitter）の企画・運用・効果測定</li>
+            <li>ランディングページの A/B テストによる CVR 改善（最大 +35%）</li>
+          </ul>
+          <div class="skill-tags">
+            <span class="skill-tag">Google Ads</span>
+            <span class="skill-tag">Meta Ads</span>
+            <span class="skill-tag">A/B テスト</span>
+            <span class="skill-tag">LP 改善</span>
+            <span class="skill-tag">Excel / スプレッドシート</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Skills -->
+    <div class="skills-section">
+      <h3>スキルレベル</h3>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label">デジタル広告運用</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 92%"></div></div>
+        <div class="skill-bar-pct">92%</div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label">データ分析</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 82%"></div></div>
+        <div class="skill-bar-pct">82%</div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label">SEO / コンテンツ</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 78%"></div></div>
+        <div class="skill-bar-pct">78%</div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label">チームマネジメント</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 70%"></div></div>
+        <div class="skill-bar-pct">70%</div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label">英語（ビジネス）</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 60%"></div></div>
+        <div class="skill-bar-pct">60%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+  <div class="fade-in">
+    <div class="section-label">Interests</div>
+    <h2>趣味・関心</h2>
+    <div class="hobby-grid">
+      <div class="hobby-card">
+        <div class="hobby-icon">📷</div>
+        <div class="hobby-title">フィルム写真</div>
+        <div class="hobby-desc">
+          週末は街スナップを中心に撮影。暗室でのフィルム現像も趣味で、アナログの質感が好きです。
+        </div>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">🏃</div>
+        <div class="hobby-title">マラソン</div>
+        <div class="hobby-desc">
+          フルマラソン完走経験あり（自己ベスト 4:12）。目標に向けた計画性と継続力を培いました。
+        </div>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">📚</div>
+        <div class="hobby-title">ビジネス書 / 技術書</div>
+        <div class="hobby-desc">
+          月 3〜5 冊のペースで読書。マーケティング・データサイエンス・組織論に関心があります。
+        </div>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">🌍</div>
+        <div class="hobby-title">旅行・異文化体験</div>
+        <div class="hobby-desc">
+          20ヶ国以上を訪問。海外のビジネス事例や文化の違いからインサイトを得るのが好きです。
+        </div>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">☕</div>
+        <div class="hobby-title">コーヒー</div>
+        <div class="hobby-desc">
+          スペシャルティコーヒーが好きで、自宅でハンドドリップを楽しんでいます。豆の産地探求も趣味。
+        </div>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">💻</div>
+        <div class="hobby-title">個人開発</div>
+        <div class="hobby-desc">
+          Python を使った自動化ツールやデータ分析スクリプトをプライベートで開発・公開しています。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: var(--accent); max-width: 100%; padding-left: 0; padding-right: 0;">
+  <div style="max-width: 960px; margin: 0 auto; padding: 7rem 4rem;" class="fade-in">
+    <div class="section-label" style="color: #9fc5b0;">Contact</div>
+    <h2 style="color: #fff; border-bottom-color: rgba(255,255,255,0.25);">連絡先</h2>
+    <div class="contact-layout">
+      <div class="contact-text" style="color: rgba(255,255,255,0.75);">
+        <p>
+          求人・業務委託のご依頼、カジュアル面談など、<br>
+          どんなきっかけでもお気軽にご連絡ください。
+        </p>
+        <p>
+          通常 1〜2 営業日以内にご返信いたします。
+        </p>
+        <div class="seeking-badge" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.25); color: #fff;">
+          <div class="seeking-dot" style="background: #7fe87f;"></div>
+          転職活動中 — 2025年入社を想定
+        </div>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:taro.yamada@example.com" class="contact-item" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.85);">
+          <div class="contact-item-icon">✉️</div>
+          <div class="contact-item-info">
+            <div class="contact-item-label" style="color: rgba(255,255,255,0.5);">Email</div>
+            <div class="contact-item-value">taro.yamada@example.com</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/example" target="_blank" class="contact-item" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.85);">
+          <div class="contact-item-icon">🔗</div>
+          <div class="contact-item-info">
+            <div class="contact-item-label" style="color: rgba(255,255,255,0.5);">LinkedIn</div>
+            <div class="contact-item-value">linkedin.com/in/taro-yamada</div>
+          </div>
+        </a>
+        <a href="https://github.com/example" target="_blank" class="contact-item" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.85);">
+          <div class="contact-item-icon">💻</div>
+          <div class="contact-item-info">
+            <div class="contact-item-label" style="color: rgba(255,255,255,0.5);">GitHub</div>
+            <div class="contact-item-value">github.com/taro-yamada</div>
+          </div>
+        </a>
+        <a href="tel:090-0000-0000" class="contact-item" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.85);">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-info">
+            <div class="contact-item-label" style="color: rgba(255,255,255,0.5);">Phone</div>
+            <div class="contact-item-value">090-0000-0000（要予約）</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Yamada Taro — All rights reserved
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
